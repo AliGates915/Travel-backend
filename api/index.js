@@ -21,7 +21,7 @@ dotenv.config();
 
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://testing-mern-adm.vercel.app' // Add your production URL
+  'https://travel-admin-jj81.vercel.app/' // Add your production URL
 ];
 
 app.use(cors({
@@ -70,9 +70,9 @@ connect();
 
 const PORT = 8000;
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
 // console.log("NODE_ENV:", process.env.NODE_ENV);
 
 mongoose.connection.on("disconnected", () => {
