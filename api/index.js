@@ -20,8 +20,7 @@ dotenv.config();
 
 
 const allowedOrigins = [
-  'http://localhost:3000',
-  'https://testing-mern-adm.vercel.app' // Add your production URL
+  'https://travel-admin-jj81.vercel.app' // Add your production URL
 ];
 
 app.use(cors({
