@@ -19,16 +19,18 @@ const app = express();
 dotenv.config();
 
 
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://testing-mern-adm.vercel.app' // Add your production URL
-];
+// const allowedOrigins = [
+//   'http://localhost:3000',
+//   'https://travel-admin-jj81.vercel.app' // Add your production URL
+// ];
 
-app.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: allowedOrigins,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   credentials: true,
+// }));
+
+app.options('*', cors()); // Enable preflight for all routes
 
 app.use(express.json());
 app.use(cookieParser());
@@ -70,10 +72,9 @@ connect();
 
 const PORT = 8000;
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on http://localhost:${PORT}`);
-// });
-// console.log("NODE_ENV:", process.env.NODE_ENV);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
 
 mongoose.connection.on("disconnected", () => {
   console.log("MongoDB disconnected");
