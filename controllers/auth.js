@@ -39,8 +39,8 @@ export const login = async (req, res, next) => {
     res
       .cookie("access_token", token, {
         httpOnly: true,
-     
-        // sameSite: "strict", // Controls cookie behavior for cross-site requests
+        secure: process.env.NODE_ENV === "production", // Ensure this is false if you're testing on HTTP
+        sameSite: "None", // Consider c
       })
       .status(200)
       .json({ ...otherDetails, isAdmin });
