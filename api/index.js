@@ -19,22 +19,12 @@ const app = express();
 dotenv.config();
 
 
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://travel-admin-jj81.vercel.app', // Production frontend URL
-];
-
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: ['http://localhost:3000', 'https://travel-admin-jj81.vercel.app'], // Replace with your frontend origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true,
+  credentials: true, // Required to allow cookies with requests
 }));
+
  // Enable preflight for all routes
 
 app.use(express.json());
