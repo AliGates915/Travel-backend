@@ -18,9 +18,12 @@ import  Voucher  from "./routes/voucher.js";
 const app = express();
 dotenv.config();
 
-
 app.use(cors({
+<<<<<<< HEAD
   origin: ['http://localhost:3000', 'https://travel-admin-jj81.vercel.app'], // Replace with your frontend origins
+=======
+  origin: ['https://travel-admin-5yhb.vercel.app'], // Replace with your frontend origins
+>>>>>>> 0ba870236caa99f065144580348c2b545501fb37
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true, // Required to allow cookies with requests
 }));
