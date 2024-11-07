@@ -5,8 +5,8 @@ import {
   deletePackageList,
   getPackageList,
   getAllPackageList,
-} from "../../controllers/packageList.js";
-import { verifyAdmin } from '../../utils/verifyToken.js';
+} from "../controllers/packageList.js";
+import { verifyAdmin } from '../utils/verifyToken.js';
 const router = express.Router();
 
 // Create a new PackageList

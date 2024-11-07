@@ -5,9 +5,9 @@ import {
     getCustomizePackageById,
     updateCustomizePackage,
     deleteCustomizePackage,
-} from "../../controllers/customizePackage.js";
+} from "../controllers/customizePackage.js";
 
-import { verifyAdmin } from '../../utils/verifyToken.js';
+import { verifyAdmin } from '../utils/verifyToken.js';
 
 const router = express.Router();
 

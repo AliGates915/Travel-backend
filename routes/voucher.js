@@ -1,4 +1,4 @@
-import { getVoucher } from "../../controllers/Voucher.js";
+import { getVoucher } from "../controllers/Voucher.js";
 import express from "express";
 const router = express.Router();
 

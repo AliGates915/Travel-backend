@@ -5,8 +5,8 @@ import {
   deleteDestination,
   getDestination,
   getAllDestination,
-} from "../../controllers/destinations.js";
-import { verifyAdmin } from '../../utils/verifyToken.js';
+} from "../controllers/destinations.js";
+import { verifyAdmin } from '../utils/verifyToken.js';
 const router = express.Router();
 
 // Create a new Destination

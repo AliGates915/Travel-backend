@@ -5,8 +5,8 @@ import {
   deleteFacility,
   getFacility,
   getAllFacility,
-} from "../../controllers/facility.js";
-import { verifyAdmin } from '../../utils/verifyToken.js';
+} from "../controllers/facility.js";
+import { verifyAdmin } from '../utils/verifyToken.js';
 const router = express.Router();
 
 // Create a new Facility

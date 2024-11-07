@@ -5,8 +5,8 @@ import {
   deleteTourType,
   getTourType,
   getAllTourType,
-} from "../../controllers/tour_type.js";
-import { verifyAdmin } from '../../utils/verifyToken.js';
+} from "../controllers/tour_type.js";
+import { verifyAdmin } from '../utils/verifyToken.js';
 const router = express.Router();
 
 // Create a new TourType
