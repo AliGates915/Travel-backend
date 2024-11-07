@@ -20,7 +20,7 @@ dotenv.config();
 
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://travel-admin-jj81.vercel.app'], // Replace with your frontend origins
+  origin: ['https://travel-admin-jj81.vercel.app','http://localhost:3000'], // Replace with your frontend origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true, // Required to allow cookies with requests
 }));
