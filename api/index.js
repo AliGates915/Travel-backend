@@ -20,10 +20,11 @@ dotenv.config();
 
 
 app.use(cors({
-  origin: ['https://travel-admin-jj81.vercel.app','http://localhost:3000'], // Replace with your frontend origins
+  origin: ['https://travel-admin-jj81.vercel.app',"https://travel.lpgexpress.com.pk", 'http://localhost:3000'], 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true, // Required to allow cookies with requests
+  credentials: true,
 }));
+
 
  // Enable preflight for all routes
 
@@ -43,10 +44,7 @@ app.use('/api/packageList', packageListRoutes);
 app.use("/api/customizePackage", customizePackageRoutes);
 app.use('/api/voucher', Voucher);
 
-// Root route for testing
-app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Hello from Vercel!' });
-});
+
 
 // MongoDB connection function
 const connect = async () => {
@@ -62,14 +60,15 @@ const connect = async () => {
   }
 };
 
-// Initialize MongoDB connection once on server startup
+// MongoDB connection 
 connect();
 
-const PORT = 8000;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+// Root route for testing
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Hello from Vercel!' });
 });
+
+
 
 mongoose.connection.on("disconnected", () => {
   console.log("MongoDB disconnected");
@@ -79,6 +78,12 @@ mongoose.connection.on("disconnected", () => {
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: 'Internal Server Error', error: err.message });
+});
+
+const PORT = 8000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 // Export the app for Vercel
