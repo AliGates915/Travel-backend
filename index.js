@@ -26,7 +26,7 @@ app.use(cors({
   credentials: true,
 }));
 
-res.setHeader('Access-Control-Allow-Origin', 'https://travel.lpgexpress.com.pk');
+
 
  // Enable preflight for all routes
 
