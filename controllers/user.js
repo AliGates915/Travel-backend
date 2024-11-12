@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import User from '../models/User.js'; 
   // Update
   export const updateUser = async (req, res, next) => {
@@ -14,16 +15,23 @@ import User from '../models/User.js';
   };
   // Delete
   export const deleteUser = async (req, res, next) => {
-      try {
-          await User.findByIdAndDelete(
-              req.params.id
-          )
-          res.status(200).json('Successful delete');
-      }  catch (error) {
-        next(error);
+    try {
+      if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        return res.status(400).json({ message: 'Invalid ID format' });
       }
-    };
-    
+  
+      const user = await User.findByIdAndDelete(req.params.id);
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      res.status(200).json('Successful delete');
+    } catch (error) {
+      console.error('Error deleting user:', error);
+      next(error);
+      res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+  };
 
     // GET
     export const getUser = async (req, res, next) => {
